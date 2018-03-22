@@ -80,11 +80,28 @@ void draw(){
   
   for(int i = 0; i < rows; i++){
     for(int j = 0; j < cols; j++){
-      particles[i][j].display();
+      //particles[i][j].display();
     }
   }
   
   for(Spring s : springs){
-    //s.display();
+    s.display();
   }
+}
+
+void mouseDragged(){
+  for(Spring s : springs){
+    if(intersects(pmouseX, pmouseY, mouseX, mouseY, s.a.x, s.a.y, s.b.x, s.b.y)){
+      physics.removeSpring(s);
+      springs.remove(s);
+      break;
+    }
+  }
+}
+
+boolean intersects(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4){
+  float numerator1 = (x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3);
+  float numerator2 = (x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3);
+  float denominator = (y4 - y3)*(x2 - x1) - (x4 - x3)*(y2 - y1);
+  return (denominator != 0) && (numerator1/denominator > 0) && (numerator1/denominator < 1) && (numerator2/denominator > 0) && (numerator2/denominator < 1);
 }
