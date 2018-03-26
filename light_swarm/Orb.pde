@@ -17,8 +17,8 @@ class Orb{
     mouse.y = mouseY;
     
     acceleration = PVector.sub(mouse, location);
-    acceleration.setMag(0.3);
-    velocity.limit(5);
+    acceleration.setMag(0.7);
+    velocity.limit(10);
     
     location.add(velocity);
     velocity.add(acceleration);
