@@ -32,6 +32,6 @@ void draw(){
   
   for(int i = 0; i < blobs.length; i++){
     blobs[i].update();
-    blobs[i].draw();
+    //blobs[i].draw();
   }
 }

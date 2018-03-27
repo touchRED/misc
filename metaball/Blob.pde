@@ -18,7 +18,7 @@ class Blob{
       PVector attract = PVector.sub(b.position, position);
       //float d = dist(position.x, position.y, b.position.x, b.position.y);
       //float m = attract.mag();
-      attract.mult(0.005);
+      attract.mult(0.001);
       acc.add(attract);
     }
     v.add(acc);
