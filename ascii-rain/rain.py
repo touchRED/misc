@@ -21,7 +21,7 @@ for i in range(10):
   for j in range(60):
     character = " "
     if(random.random() > thresh):
-      character = "/"
+      character = "v"
     line += character  
   print(line)
 '''
